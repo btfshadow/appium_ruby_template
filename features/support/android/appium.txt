@@ -1,0 +1,11 @@
+[caps]
+    platformName = "android"
+    deviceName = "NexusAPI26"
+    app = ""
+    # Use automationName with gpu, because default automator,
+    # not recognize any elements on the screen
+    automationName = "UiAutomator2"
+    noReset = true
+    fullReset = false
+    autoGrantPermissions = true
+    appActivity = 'home.HomeActivity'

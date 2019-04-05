@@ -1,0 +1,60 @@
+{
+    // If not specified searches for 'rubocop' executable available on PATH (default and recommended)
+    "ruby.rubocop.executePath": "",
+    
+    // You can use specific path
+    // "ruby.rubocop.executePath": "/Users/you/.rbenv/shims/"
+    // "ruby.rubocop.executePath": "/Users/you/.rvm/gems/ruby-2.3.2/bin/"
+    // "ruby.rubocop.executePath": "D:/bin/Ruby22-x64/bin/"
+    
+    // If not specified, it assumes a null value by default.
+    "ruby.rubocop.configFilePath": ".rubocop.yml",
+    // default true
+    "ruby.rubocop.onSave": true,
+    "files.exclude": {
+        "**/.git": false,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/CVS": true,
+        "**/.DS_Store": true
+    },
+    "cucumberautocomplete.steps": [
+        "features/step_definitions/*.rb"
+    ],
+    "cucumberautocomplete.syncfeatures": "features/*.feature",
+    "cucumberautocomplete.strictGherkinCompletion": true,
+    "cucumberautocomplete.smartSnippets": true,
+    "cucumberautocomplete.stepsInvariants": true,
+    "cucumberautocomplete.customParameters": [
+        {
+            "parameter": "{ab}",
+            "value": "(a|b)"
+        }
+    ],
+    "cucumberautocomplete.pages": {
+        "android": "features/android/screens/*.rb",
+        "ios": "features/ios/screens/*.rb"
+    },
+    "editor.quickSuggestions": {
+        "comments": false,
+        "strings": true,
+        "other": true
+    },
+    // Basic settings: turn linter(s) on
+"ruby.lint": {
+    "rubocop": {
+        "lint": true, //enable all lint cops.
+        "except": ["features/base_screen/*.rb","features/support/*","config/scripts/ios/build_app.rb","features/step_definitions/*"],
+        "forceExclusion": true, //Add --force-exclusion option
+        "require": [/* array: Require Ruby files. */],
+        "rails": true //Run extra rails cops
+    },
+},
+
+// Time (ms) to wait after keypress before running enabled linters. Ensures
+// linters are only run when typing has finished and not for every keypress
+"ruby.lintDebounceTime": 500,
+"solargraph.diagnostics": true,
+"ruby.intellisense": "rubyLocate",
+
+}

@@ -1,0 +1,83 @@
+thiagobandeira1:
+  xcworkspace: "/Users/t.simoes.goncalves/workspace/vv-viaunica-ios/ViaVarejo.xcworkspace"
+  scheme: Casasbandeira1 Homolog
+  configuration: Homolog
+  destination: "platform=iOS Simulator,name=iPhone 8"
+  export_path: "/Users/t.simoes.goncalves/workspace/vv-viaunica-qa/bandeira1IOSAPP"
+
+thiagobandeira2:
+  xcworkspace: "/Users/t.simoes.goncalves/workspace/vv-viaunica-ios/ViaVarejo.xcworkspace"
+  scheme: bandeira2 Homolog
+  configuration: Homolog
+  destination: "platform=iOS Simulator,name=iPhone 8"
+  export_path: "/Users/t.simoes.goncalves/workspace/vv-viaunica-qa/bandeira2IOSAPP"
+
+eloybandeira1:
+  xcworkspace: "/Users/eloy.vitorio/Documents/ViaVarejo/vv-viaunica-ios/ViaVarejo.xcworkspace"
+  scheme: Casasbandeira1 Homolog
+  configuration: Homolog
+  destination: "platform=iOS Simulator,name=iPhone 8"
+  export_path: "/Users/eloy.vitorio/Documents/ViaVarejo/vv-viaunica-qa/bandeira1IOSAPP"
+
+thiagoHomolog5s:
+  xcworkspace: "/Users/t.simoes.goncalves/workspace/vv-viaunica-ios/ViaVarejo.xcworkspace"
+  scheme: ViaVarejo Homolog
+  configuration: Homolog
+  destination: "platform=iOS Simulator,name=iPhone 5s"
+  export_path: "/Users/t.simoes.goncalves/workspace/vv-viaunica-qa/iOSAPP"
+
+  eloybandeira2:
+  xcworkspace: "/Users/eloy.vitorio/Documents/ViaVarejo/vv-viaunica-ios/ViaVarejo.xcworkspace"
+  scheme: bandeira2 Homolog
+  configuration: Homolog
+  destination: "platform=iOS Simulator,name=iPhone 8"
+  export_path: "/Users/eloy.vitorio/Documents/ViaVarejo/vv-viaunica-qa/bandeira2IOSAPP"
+
+diegoDev:
+  xcworkspace: "/Users/diegomalafaia/workspace/vv-viaunica-ios/ViaVarejo.xcworkspace"
+  scheme: ViaVarejo Dev
+  configuration: Dev
+  destination: "platform=iOS Simulator,name=iPhone 8"
+  export_path: "/Users/diegomalafaia/workspace/vv-viaunica-qa/iOSAPP"
+
+diegoHomolog10:
+  xcworkspace: "/Users/diegomalafaia/workspace/vv-viaunica-ios/ViaVarejo.xcworkspace"
+  scheme: ViaVarejo Homolog
+  configuration: Homolog
+  destination: "platform=iOS Simulator,name=iPhone 7 Plus"
+  export_path: "/Users/diegomalafaia/workspace/vv-viaunica-qa/iOSAPP"
+
+diegoHomolog11:
+  xcworkspace: "/Users/diegomalafaia/workspace/vv-viaunica-ios/ViaVarejo.xcworkspace"
+  scheme: Casasbandeira1 Homolog
+  configuration: Homolog
+  destination: "platform=iOS Simulator,name=iPhone 8"
+  export_path: "/Users/diegomalafaia/workspace/vv-viaunica-qa/bandeira1IOSAPP"
+
+diegoStaging:
+  xcworkspace: "/Users/diegomalafaia/workspace/vv-viaunica-ios/ViaVarejo.xcworkspace"
+  scheme: ViaVarejo Staging
+  configuration: Staging
+  destination: "platform=iOS Simulator,name=iPhone 8"
+  export_path: "/Users/diegomalafaia/workspace/vv-viaunica-qa/bandeira1IOSAPP"
+
+rivelino:
+  xcworkspace: "/Users/rivelinonascimento/Projetos/vv-viaunica-ios/ViaVarejo.xcworkspace"
+  scheme: Casasbandeira1 Homolog
+  configuration: Homolog
+  destination: "platform=iOS Simulator,name=iPhone 8"
+  export_path: "/Users/rivelinonascimento/Projetos/vv-viaunica-qa/bandeira1IOSAPP"
+
+jbandeira1:
+  xcworkspace: $WORKSPACE/vv-viaunica-ios/ViaVarejo.xcworkspace
+  scheme: Casasbandeira1 Homolog
+  configuration: Homolog
+  destination: "platform=iOS Simulator,name=iPhone 8"
+  export_path: $WORKSPACE/bandeira1IOSAPP
+
+jbandeira2:
+  xcworkspace: $WORKSPACE/vv-viaunica-ios/ViaVarejo.xcworkspace
+  scheme: bandeira2 Homolog
+  configuration: Homolog
+  destination: "platform=iOS Simulator,name=iPhone 8"
+  export_path: $WORKSPACE/bandeira2IOSAPP

@@ -1,0 +1,23 @@
+# config/cucumber.yml
+##YAML Template
+
+<% test_batch_id = "#{ENV['TEST_ENV_NUMBER']}" %>
+<% plataforma = "#{ENV['PLATAFORMA']}" %>
+<% sistema = "#{ENV['SISTEMA']}" %>
+<% plataforma_ex = "#{ENV['PLATAFORMA_EX']}" %>
+---
+
+ios: PLATFORM='iPhone 7' SCREENSHOT_PATH=screenshots/ios/ -r features/support -r features/ios -r features/step_definitions --exclude features/android --tags 'not @instrumentado and not @WIP and not @MASSA and not @android'
+android: PLATFORM=android SCREENSHOT_PATH=screenshots/android/ -r features/support -r features/android -r features/step_definitions --exclude features/ios --tags 'not @instrumentado and not @WIP and not @MASSA'
+
+ios5s: PLATFORM=ios5s SCREENSHOT_PATH=screenshots/ios/ -r features/support -r features/ios -r features/step_definitions --exclude features/android --tags 'not @instrumentado and not @WIP and not @MASSA and not @android'
+Jios: PLATFORM=Jios SCREENSHOT_PATH=screenshots/ios/ -r features/support -r features/ios -r features/step_definitions --exclude features/android --tags 'not @instrumentado and not @WIP and not @MASSA and not @android'
+ios7p10: PLATFORM=ios7p10 SCREENSHOT_PATH=screenshots/ios/ -r features/support -r features/ios -r features/step_definitions --exclude features/android --tags 'not @instrumentado and not @WIP and not @MASSA and not @android'
+
+parallel: PLATFORM=<%= plataforma %><%= test_batch_id %> -f pretty -f json -o reports/<%= plataforma %>/<%= plataforma %><%= test_batch_id %>.json SCREENSHOT_PATH=screenshots/<%= plataforma %>/ -r features/support -r features/<%= sistema %> -r features/step_definitions --exclude features/<%= plataforma_ex %> --tags 'not @instrumentado and not @WIP and not @MASSA and not @MANUAL and not @<%= plataforma_ex %>'
+
+android19: PLATFORM=android19 SCREENSHOT_PATH=screenshots/android/ -r features/support -r features/android -r features/step_definitions --exclude features/ios --tags 'not @instrumentado and not @WIP and not @MASSA and not @iOS'
+J5API23: PLATFORM=J5API23 SCREENSHOT_PATH=screenshots/android/ -r features/support -r features/android -r features/step_definitions --exclude features/ios --tags 'not @instrumentado and not @WIP and not @MASSA and not @iOS'
+android26: PLATFORM=android26 SCREENSHOT_PATH=screenshots/android/ -r features/support -r features/android -r features/step_definitions --exclude features/ios --tags 'not @instrumentado and not @WIP and not @MASSA and not @iOS'
+JNexus4API19: PLATFORM=JNexus4API19 SCREENSHOT_PATH=screenshots/android/ -r features/support -r features/android -r features/step_definitions --exclude features/ios --tags 'not @instrumentado and not @WIP and not @MASSA and not @iOS'
+Jenkins: PLATFORM=Jenkins SCREENSHOT_PATH=screenshots/android/ -r features/support -r features/android -r features/step_definitions --exclude features/ios --tags 'not @instrumentado and not @WIP and not @MASSA and not @iOS'

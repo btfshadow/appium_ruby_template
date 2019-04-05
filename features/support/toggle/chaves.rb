@@ -1,0 +1,22 @@
+TOGGLE = {
+    CalcularFreteLojistasApp: 'CalcularFreteLojistasApp',
+    ObterGeoGoogleApp: 'ObterGeoGoogleApp',
+    RetiraLojaApp: 'RetiraLojaApp',
+    OfertaServicosPdpAPP: 'OfertaServicosPdpAPP',
+    OfertaServicosCarrinhoApp: 'OfertaServicosCarrinhoApp',
+    PaginaIntermediariaOfertaGarantiaApp: 'PaginaIntermediariaOfertaGarantiaApp',
+    CarrosselSuperiorApp: 'CarrosselSuperiorApp',
+    FavoritosHabilitadoMobile: 'FavoritosHabilitadoMobile',
+    CarrosselInferiorApp: 'CarrosselInferiorApp',
+    VoceVisitouPorIssoRecomendamosApp: 'VoceVisitouPorIssoRecomendamosApp',
+    BannersDestaquesTvApp: 'BannersDestaquesTvApp',
+    OfertasImperdiveisApp: 'OfertasImperdiveisApp',
+    RankingDeOfertasApp: 'RankingDeOfertasApp',
+    MobileAppEngagement: 'MobileAppEngagement',
+    QuemViuViuTambemApp: 'QuemViuViuTambemApp',
+    QuemViuComprouApp: 'QuemViuComprouApp',
+    AproveiteCompreJuntoApp: 'AproveiteCompreJuntoApp',
+    AcumuloPontosPdpAPP: 'AcumuloPontosPdpAPP',
+    NBOApp: 'NBOApp',
+    InternetPatrocinadaHabilitada: 'InternetPatrocinadaHabilitada'
+}.freeze

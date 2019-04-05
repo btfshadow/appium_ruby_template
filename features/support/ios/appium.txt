@@ -1,0 +1,17 @@
+[caps]
+    platformName = "ios"
+    platformVersion = "11.4"
+    deviceName = "iPhone 8"
+    app = ".app"
+    # Use automationName with gpu, because default automator,
+    # not recognize any elements on the screen
+    automationName = "XCUITest"
+    noReset = true
+    fullReset = false
+    keepKeychains = false
+    connectHardwareKeyboard = false
+    unicodeKeyboard = true
+    # isHeadless = true
+    resetKeyboard = true
+    autoAcceptAlerts = true
+    #wdaLocalPort = 8100

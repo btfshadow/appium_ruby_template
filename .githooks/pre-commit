@@ -1,0 +1,95 @@
+#!/bin/sh
+#
+# Check for ruby style errors
+   
+red='\033[0;31m'
+green='\033[0;32m'
+yellow='\033[0;33m'
+NC='\033[0m'
+
+if git rev-parse --verify HEAD >/dev/null 2>&1
+then
+	against=HEAD
+else
+	# Initial commit: diff against an empty tree object
+	# Change it to match your initial commit sha
+	against=123acdac4c698f24f2352cf34c3b12e246b48af1
+fi
+
+# Check if rubocop is installed for the current project
+# exec rubocop -v >/dev/null 2>&1 || { echo >&2 "${red}[Ruby Style][Fatal]: Add rubocop to your Gemfile"; exit 1; }
+# Get only the staged files
+FILES="$(git diff --cached --name-only --diff-filter=AMC | grep "\.rb$" | tr '\n' ' ')"
+
+echo "${green}[Ruby Style][Info]: Checking Ruby Style${NC}"
+
+if [ -n "$FILES" ]
+then
+	echo "${green}[Ruby Style][Info]: ${FILES}${NC}"
+	
+	if [ ! -f '.rubocop.yml' ]; then
+	  echo "${yellow}[Ruby Style][Warning]: No .rubocop.yml config file.${NC}"
+	fi
+	
+	# Run rubocop on the staged files
+    exec rubocop ${FILES}
+	
+	if [ $? -ne 0 ]; then
+	  echo "${red}[Ruby Style][Error]: Fix the issues and commit again${NC}"
+	  exit 1
+	fi
+else
+	echo "${green}[Ruby Style][Info]: No files to check${NC}"
+fi
+
+exit 0
+
+# #!/bin/sh
+# #
+# # An example hook script to verify what is about to be committed.
+# # Called by "git commit" with no arguments.  The hook should
+# # exit with non-zero status after issuing an appropriate message if
+# # it wants to stop the commit.
+# #
+# # To enable this hook, rename this file to "pre-commit".
+
+# if git rev-parse --verify HEAD >/dev/null 2>&1
+# then
+# 	against=HEAD
+# else
+# 	# Initial commit: diff against an empty tree object
+# 	against=4b825dc642cb6eb9a060e54bf8d69288fbee4904
+# fi
+
+# # If you want to allow non-ASCII filenames set this variable to true.
+# allownonascii=$(git config --bool hooks.allownonascii)
+
+# # Redirect output to stderr.
+# exec 1>&2
+
+# # Cross platform projects tend to avoid non-ASCII filenames; prevent
+# # them from being added to the repository. We exploit the fact that the
+# # printable range starts at the space character and ends with tilde.
+# if [ "$allownonascii" != "true" ] &&
+# 	# Note that the use of brackets around a tr range is ok here, (it's
+# 	# even required, for portability to Solaris 10's /usr/bin/tr), since
+# 	# the square bracket bytes happen to fall in the designated range.
+# 	test $(git diff --cached --name-only --diff-filter=A -z $against |
+# 	  LC_ALL=C tr -d '[ -~]\0' | wc -c) != 0
+# then
+# 	cat <<\EOF
+# Error: Attempt to add a non-ASCII file name.
+
+# This can cause problems if you want to work with people on other platforms.
+
+# To be portable it is advisable to rename the file.
+
+# If you know what you are doing you can disable this check using:
+
+#   git config hooks.allownonascii true
+# EOF
+# 	exit 1
+# fi
+
+# # If there are whitespace errors, print the offending file names and fail.
+# exec git diff-index --check --cached $against --

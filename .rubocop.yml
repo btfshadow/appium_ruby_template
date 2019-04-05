@@ -1,0 +1,85 @@
+# Custom config for RuboCop static code analysis
+Metrics/LineLength:
+  Max: 500
+Metrics/MethodLength:
+  Enabled: false
+Metrics/ModuleLength:
+  Enabled: false
+Metrics/ClassLength:
+  Enabled: false
+Metrics/CyclomaticComplexity:
+  Enabled: false
+Metrics/PerceivedComplexity:
+  Enabled: false
+Metrics/AbcSize:
+  Enabled: false
+Metrics/BlockLength:
+  Enabled: false
+Style/Documentation:
+  Enabled: false
+Style/RegexpLiteral:
+  Enabled: false
+Naming/ConstantName:
+  Enabled: false
+# blocked on https://github.com/appium/ruby_lib/issues/312. Already removed from core part
+Style/GlobalVars:
+  Enabled: false
+Naming/AccessorMethodName:
+  Enabled: false
+Style/DoubleNegation:
+  Enabled: false
+Style/EachWithObject:
+  Enabled: false
+Layout/SpaceAroundOperators:
+  Enabled: false
+Layout/ExtraSpacing:
+  Enabled: false
+Layout/IndentHash:
+  Enabled: false
+Naming/VariableNumber:
+  EnforcedStyle: 'snake_case'
+Layout/MultilineOperationIndentation:
+  Enabled: false
+Lint/NestedMethodDefinition:
+  Enabled: false
+# Should enable and fix for Ruby3
+Style/FrozenStringLiteralComment:
+  Enabled: false
+# Can use over Ruby2.3
+Style/SafeNavigation:
+  Enabled: false
+# Can use over Ruby2.3
+Style/NumericPredicate:
+  Enabled: false
+Layout/IndentationWidth:
+  Enabled: false
+Lint/RescueException:
+  Enabled: false
+Style/RescueStandardError:
+  Enabled: false
+Naming/MethodName:
+  Enabled: false
+Style/BracesAroundHashParameters:
+  EnforcedStyle: context_dependent
+Style/AsciiComments:
+  Enabled: false
+Style/WordArray:
+  Enabled: false
+Lint/UselessAssignment:
+  Enabled: false
+Lint/UnusedBlockArgument:
+  Enabled: false
+Naming/HeredocDelimiterCase:
+  Enabled: false
+Style/EmptyCaseCondition:
+  Enabled: false
+Layout/MultilineBlockLayout:
+  Enabled: false
+
+AllCops:
+  TargetRubyVersion: 2.3
+  Exclude:
+    - 'features/base_screen/*.rb'
+    - 'config/scripts/ios/build_app.rb'
+    - 'features/step_definitions/*'
+    - '*_steps.rb'
