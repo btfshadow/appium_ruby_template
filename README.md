@@ -4,10 +4,7 @@ O produto consiste em uma transcrição do APP atual em webview para um app nati
     Todos os projetos ficam dentro de uma pasta chamada workspace
     #EX:
         workspace
-            vv-viaunica-qa
-            vv-viaunica-qa-contrato
-            vv-viaunica-ios
-            vv-viaunica-android
+
 
 Ferramentas:
 
@@ -53,10 +50,6 @@ Após vamos configurar o emuladores
 |NexuAPI26  | Hardware Nexus 5 api 26 com google apps   |   4726        |   NexusAPI26      |
 |Nexu4API23 | Hardware Nexus 4 api 23 com google apps   |   4723        |   NexusAPI23      |
 |J5API19    | Hardware j5 api 19 com google apps        |   4719        |   J5API19         |
-
-Exemplo de comandos
-> Compilar 
-    cd ../vv-viaunica-android/ && ./gradlew assemblebandeira1Homolog
 
 >Abrir Emulador
     emulator @NexusAPI26
