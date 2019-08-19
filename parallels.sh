@@ -78,11 +78,12 @@ function environments(){
 # Skin 1: J5API19 WXGA  2: Nexus_5X
 function create_android_emulator(){
       if [ "$SKIN" == "1" ]; then
-            skin=J5API19
+            skin=10
       else
             skin=10
       fi
-      $ANDROID_HOME/tools/bin/avdmanager -s --silent create avd --force --name ${names[$i]} --abi $aabi --package $api --device $skin
+      # avdmanager create avd --force --name ${names[$i]} --abi $aabi --package $api --device $skin
+      avdmanager create avd --name teste --abi google_apis/x86 --package "system-images;android-28;google_apis;x86" --device 10
 }
 
 # start Android Emulators

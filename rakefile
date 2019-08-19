@@ -1,0 +1,100 @@
+require 'cucumber'
+require 'cucumber/rake/task'
+require 'rubocop/rake_task'
+require 'rake'
+
+namespace :appium do
+    desc 'ES: ejecutar las pruebas; EN: Run the Tests; PT: Executa os Testes'
+    task :run_test, [:platform, :tags] do |task, args|
+        tags = "-t + #{args[:args]}" unless args[:args].nil?
+        sh "cucumber -p #{args[:platform]} #{tags}"
+    end
+
+    desc 'ES: Iniciar el emulador; EN: Run the emulator; PT: Inicia o Emulador'
+    task :start_emulator do
+    end
+
+    desc 'ES:Crear el Emulator; EN: Create Emulator; PT: Cria o emulator'
+    task :create_emulator, [:platform] do |task, args|
+        if args[:platform]
+            sh 'avdmanager create avd --name testDevice --abi google_apis/x86 --package "system-images;android-28;google_apis;x86" --device 10'
+        else
+            sh "xcrun simctl boot 'xcrun simctl create testeDevice com.apple.CoreSimulator.SimDeviceType.iPhone-7 com.apple.CoreSimulator.SimRuntime.iOS-12-2'"
+        end
+    end
+
+    desc 'ES: inicia el appium server; EN: Start Appium Server; PT: inicia o servidor do appium'
+    task :start_appium do
+    end
+
+    desc 'ES: Crear el Report; EN: Create Report; PT: Criar o Emulador'
+    task :create_report do
+    end
+end
+
+namespace :app do
+    desc 'ES: Compile Aplication; EN: Compile APP; PT: Compila o app'
+    task :compile, [:platform, :environment, :branch] do |task, args|
+        args[:environment] = 'assembleDevDebug' if args[:environment].nil?
+        if args[:platform].downcase.include? 'android'.downcase
+            begin
+                sh 'rm ../android/app/app/build/outputs/apk/dev/debug/*.apk'
+            rescue 
+                nil
+            end
+            sh "#{git_feature_android(args[:branch])} #{graflew(args[:environment])}"
+            begin
+                sh 'rm app/android/*.apk'
+            rescue
+                nil
+            end
+            sh 'cp -i ../android/app/app/build/outputs/apk/dev/debug/app-dev-debug.apk app/android'
+        else
+            args[:environment] = 'DebugDev' if args[:environment].nil?
+            sh git_feature_ios(args[:branch]).to_s
+            install_pods
+            sh 'rm -rf app/iOS*' unless args[:replace].nil?
+            sh "cd config/scripts/ios && Ruby build_app.rb #{args[:environment]}"
+        end
+    end
+end
+
+namespace :report do
+    desc 'Make a report rubocop'
+    RuboCop::RakeTask.new(:rubocop) do |t|
+        t.options = ['--format=json']
+        t.options += ['--out=rubocop-result.json']
+    end
+
+    desc 'Make a android report Allure'
+    task :android do
+        sh 'allure serve reports/android'
+    end
+
+    desc 'Make a iOS report Allure'
+    task :ios do
+        sh 'allure serve reports/ios'
+    end
+end
+
+def git_feature_android(branch = nil)
+    var = 'cd ../android/app'
+    # var += " &&  git checkout #{branch}" unless branch.nil?
+    # var += ' && git pull'
+    var
+end
+
+def git_feature_ios(branch = nil)
+    var = 'cd ../ios/app'
+    var += "&&  git checkout #{branch}" unless branch.nil?
+    var += '&& git pull'
+    var
+end
+
+def graflew(environment)
+    "&& ./gradlew #{environment}"
+end
+
+def install_pods
+    sh 'cd ../ios/app && pod install --repo-update'
+end
