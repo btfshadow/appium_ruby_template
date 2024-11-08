@@ -19,6 +19,14 @@ When('iniciar sesión con las credenciales no válidas') do
   @login.login('credencial_invalida')
 end
 
+When('iniciar sesión con las credenciales no válidas') do
+  @main_activity.authentication_button_login.click
+  @common = Commnons.new
+  @common.continue_button.click if $platform.include? 'ios'
+  @login = LoginModule.new
+  @login.login('credencial_invalida')
+end
+
 Then('así que estoy logueando con éxito') do
   home = Home.new
   begin
